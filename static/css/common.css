@@ -1,0 +1,185 @@
+[v-cloak] {
+    display: none;
+}
+
+/* css reset */
+
+html,
+body {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    user-select: none;
+    color: #333;
+    outline: none;
+    /*background-color: #e6e6e6;*/
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+    padding: 0;
+    margin: 0;
+    font-family: "Microsoft YaHei", 微软雅黑;
+}
+
+fieldset,
+img {
+    border: 0;
+    outline: medium none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    outline: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+    font-weight: normal;
+    font-style: normal;
+}
+
+caption,
+th {
+    text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    font-size: 100%;
+}
+
+q:before,
+q:after {
+    content: '';
+}
+
+abbr,
+acronym {
+    border: 0;
+}
+
+[hidden],
+script {
+    display: none;
+}
+
+a {
+    text-decoration: none!important;
+    outline: medium none;
+}
+
+input,
+textarea {
+    outline: medium none;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+    /*    display: block;*/
+    height: auto;
+    margin: auto;
+}
+.Wrapper{
+    min-height: 100%;
+    position: relative;
+    z-index:99;
+}
+.Wrapper .FooterPush{
+    height: 180px; /* Footer 的高度 */
+}
+.header{
+    width: 100%;
+    height: 30px;
+    /*background-color: #333;*/
+    color: white;
+    position: relative;
+    top: 0;
+}
+
+.footer{
+    clear: both; /* 清除浮动元素格式 */
+    position: relative;
+    margin-top: -180px; /* Footer 高度的负值 */
+    width: 100%;
+    height: 180px;
+    /*background-color: #333;*/
+}
+.footer .footer-content{
+    width: 100%;
+    height: 144px;
+}
+.footer .copright{
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: white;
+}
+.topIcon{
+    display: none;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 0;
+    bottom: 50px;
+    background-color: white;
+    cursor: pointer;
+    z-index: 99;
+}
+.topIcon:hover{
+    background-color: #999;
+}
+.topIcon .layui-icon{
+    display: inherit;
+    font-size: 50px;
+}
