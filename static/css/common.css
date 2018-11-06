@@ -146,25 +146,17 @@ img {
     top: 0;
 }
 
-.footer{
-    clear: both; /* 清除浮动元素格式 */
+.footer {
+    clear: both;
     position: relative;
-    margin-top: -180px; /* Footer 高度的负值 */
+    margin-top: -30px;
     width: 100%;
-    height: 180px;
-    /*background-color: #333;*/
-}
-.footer .footer-content{
-    width: 100%;
-    height: 144px;
-}
-.footer .copright{
-    width: 100%;
-    height: 36px;
-    line-height: 36px;
+    height: 30px;
     text-align: center;
+    z-index: 111;
     color: white;
 }
+
 .topIcon{
     display: none;
     position: fixed;
