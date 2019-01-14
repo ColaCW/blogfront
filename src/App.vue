@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-
+    <button onclick="console.log(111)">111</button>
   </div>
 </template>
 
