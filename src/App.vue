@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="header">头部</div>
     <button onclick="console.log(111)">111</button>
   </div>
 </template>
