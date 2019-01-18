@@ -183,6 +183,4 @@ var Web = {
   },
 };
 
-export {Web}
-
 

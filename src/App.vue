@@ -1,14 +1,36 @@
 <template>
   <div id="app">
-    <div class="header">头部</div>
-    <button onclick="console.log(111)">111</button>
+    <div class="header">
+      <label @click="goA(1)">1111</label>
+      <label @click="goA()">22222</label>
+      <label @click="goA()">3333</label>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import { Web } from "../static/js/web.js";
+  export default {
+    name: 'App',
+    data () {
+      return {
+      }
+    },
+    mounted:function(){
+      console.log(Web.host)
+    },
+    methods: {
+        goA:function (type) {
+          var that = this;
+          if(type == 1){
+            that.$router.push("/")
+          }else{
+            that.$router.push("/BlogDetail")
+          }
+        }
+    }
+  }
 </script>
 
 <style>

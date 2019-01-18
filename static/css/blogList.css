@@ -1,0 +1,10 @@
+.main{
+  margin-bottom: 40px;
+}
+.main .blogBox{
+  width: 100%;
+  height:100px;
+  margin-top: 20px;
+  border: 1px solid red;
+  background-color: white;
+}
