@@ -1,0 +1,62 @@
+.main {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.blogDetailBox{
+  width: 100%;
+  min-height:600px;
+  background-color: red;
+}
+
+/*点击排行*/
+.rightBox .clickRankBox{
+  width: 100%;
+  height:550px;
+  background-color: white;
+  border-radius: 6px;
+}
+/*推荐文章*/
+.rightBox .recommendBox{
+  width: 100%;
+  height:550px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+/*网站标签*/
+.rightBox .tagBox{
+  width: 100%;
+  height:550px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+/*友情链接*/
+.rightBox .friendHrefBox{
+  width: 100%;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+.htitle{
+  text-align: left;
+  font-size: 16px;
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
+  color: #484848;
+  font-weight: normal;
+  position: relative;
+  margin: 10px 20px 10px 20px;
+}
+.htitle::after{
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 2px;
+  background: #000;
+  left: 0;
+  bottom: 0;
+  -moz-transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
