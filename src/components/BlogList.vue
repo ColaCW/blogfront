@@ -4,8 +4,8 @@
     <div class="nullBox layui-col-xs0 layui-col-md2"></div>
     <div class="main layui-col-xs12 layui-col-md8">
       <div class="leftBox layui-col-xs12 layui-col-md9" style="margin-bottom:20px;">
-        <div class="banner-box">
-          <div class="banner-img layui-col-md9">
+        <div class="banner-box layui-col-xs12">
+          <div class="banner-img layui-col-xs12 layui-col-md9">
             <div class="swiper-container">
               <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="../../static/img/in_top_bj.jpg"/></div>
@@ -16,18 +16,29 @@
               <div class="swiper-pagination"></div>
             </div>
           </div>
-          <div class="banner-message layui-col-md3" style="padding-left:35px;">
+          <div class="banner-message layui-col-xs12 layui-col-md3" style="padding-left:35px;">
             <div class="message1">
-              <a href="https://www.aliyun.com" target="_blank"><img src="../../static/img/aliyun.png"/></a>
+              <a href="https://www.aliyun.com" target="_blank"><img src="../../static/img/aliyun.jpg" style="width: 100%;"/></a>
             </div>
             <div class="message2">
-              <a href="https://portal.qiniu.com" target="_blank"><img src="../../static/img/qiniuyun.png"/></a>
+              <a href="https://portal.qiniu.com" target="_blank"><img src="../../static/img/qiniuyun.jpg" style="width: 100%;"/></a>
             </div>
           </div>
           <div style="clear: both;"></div>
         </div>
         <template v-for="(blog,index) in blogs">
-          <div data-scroll-reveal="enter top  over 1.33s" class="blogBox" @click="goDetail(index)">{{blog.name}}</div>
+          <div data-scroll-reveal="enter top  over 1.33s" class="blogBox layui-col-xs12" @click="goDetail(index)">
+            <div class="blog-name">{{blog.name}}</div>
+            <div class="blog-body">
+              <div class="blog-img layui-col-xs4 layui-col-md2">
+                <img src="../../static/img/666.gif" style="width: 100%;height:100%"/>
+              </div>
+              <div class="blog-content layui-col-xs8 layui-col-md10">
+                sdasd
+              </div>
+              <div style="clear: both"></div>
+            </div>
+          </div>
         </template>
         <div id="articlePage" style="margin-top: 25px;"></div>
       </div>
