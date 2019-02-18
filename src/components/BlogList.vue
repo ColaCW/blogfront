@@ -34,13 +34,23 @@
                 <img src="../../static/img/666.gif" style="width: 100%;height:100%"/>
               </div>
               <div class="blog-content layui-col-xs8 layui-col-md10">
-                sdasd
+                <div class="blog-articel">sdasd</div>
+                <div class="blog-other">
+                  <img src="../../static/img/标签.png" style="float: left;margin-left: 15px;"/>
+                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【JAVA·trim()】</div>
+                  <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
+                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">20</div>
+                  <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
+                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;">2019-09-09</div>
+                  <div class="read-article" style="float: right;margin-right: 10px" @click.stop="goDetail(index)">阅读原文</div>
+                  <div style="clear: both"></div>
+                </div>
               </div>
               <div style="clear: both"></div>
             </div>
           </div>
         </template>
-        <div id="articlePage" style="margin-top: 25px;"></div>
+        <div id="articlePage"></div>
       </div>
       <div class="rightBox layui-col-xs12 layui-col-md3" style="padding-left: 35px;margin-bottom:20px;">
         <div class="userBox">
@@ -61,8 +71,10 @@
           <h2 class="htitle">
             热门点击
           </h2>
-          <ul>
-            <li></li>
+          <ul style="margin-left: 20px;">
+            <template v-for="(blog,index) in blogs">
+              <li style="text-align: left;">{{index+1}}.{{blog.name}}</li>
+            </template>
           </ul>
         </div>
         <div class="recommendBox">

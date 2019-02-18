@@ -4,8 +4,14 @@
 }
 .blogDetailBox{
   width: 100%;
-  min-height:600px;
-  background-color: red;
+  min-height:700px;
+  background-color: white;
+  overflow: hidden;
+}
+.blogDetailBox .blog-name{
+  font-size: 20px;
+  margin: 20px 0;
+  text-align: center;
 }
 
 /*点击排行*/
@@ -14,6 +20,7 @@
   height:550px;
   background-color: white;
   border-radius: 6px;
+  overflow: hidden;
 }
 /*推荐文章*/
 .rightBox .recommendBox{
@@ -22,6 +29,7 @@
   background-color: white;
   border-radius: 6px;
   margin-top: 20px;
+  overflow: hidden;
 }
 /*网站标签*/
 .rightBox .tagBox{
@@ -30,6 +38,7 @@
   background-color: white;
   border-radius: 6px;
   margin-top: 20px;
+  overflow: hidden;
 }
 /*友情链接*/
 .rightBox .friendHrefBox{
@@ -37,6 +46,7 @@
   background-color: white;
   border-radius: 6px;
   margin-top: 20px;
+  overflow: hidden;
 }
 .htitle{
   text-align: left;

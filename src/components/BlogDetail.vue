@@ -4,7 +4,16 @@
     <div class="main layui-col-xs12 layui-col-md8">
       <div class="leftBox layui-col-xs12 layui-col-md9" style="margin-bottom:20px;">
         <div class="blogDetailBox">
-
+            <div class="blog-name">博客标题</div>
+            <div>
+              <img src="../../static/img/标签.png" style="float: left;margin-left: 15px;"/>
+              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【JAVA·trim()】</div>
+              <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
+              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">20</div>
+              <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
+              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;">2019-09-09</div>
+              <div style="clear: both"></div>
+            </div>
         </div>
       </div>
       <div class="rightBox layui-col-xs12 layui-col-md3" style="padding-left: 35px;margin-bottom:20px;">
