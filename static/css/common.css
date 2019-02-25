@@ -1,20 +1,20 @@
 [v-cloak] {
-    display: none;
+  display: none;
 }
 
 /* css reset */
 
 html,
 body {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    user-select: none;
-    color: #333;
-    outline: none;
-    /*background-color: #e6e6e6;*/
-    margin: 0;
-    padding: 0;
-    height: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  user-select: none;
+  color: #333;
+  outline: none;
+  /*background-color: #e6e6e6;*/
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 body,
@@ -40,34 +40,34 @@ p,
 blockquote,
 th,
 td {
-    padding: 0;
-    margin: 0;
-    font-family: "Microsoft YaHei", 微软雅黑;
+  padding: 0;
+  margin: 0;
+  font-family: "Microsoft YaHei", 微软雅黑;
 }
 
 fieldset,
 img {
-    border: 0;
-    outline: medium none;
+  border: 0;
+  outline: medium none;
 }
 
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button;
-    cursor: pointer;
-    outline: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+  outline: none;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 ol,
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 address,
@@ -78,13 +78,13 @@ dfn,
 em,
 th,
 var {
-    font-weight: normal;
-    font-style: normal;
+  font-weight: normal;
+  font-style: normal;
 }
 
 caption,
 th {
-    text-align: left;
+  text-align: left;
 }
 
 h1,
@@ -93,90 +93,134 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: normal;
-    font-size: 100%;
+  font-weight: normal;
+  font-size: 100%;
 }
 
 q:before,
 q:after {
-    content: '';
+  content: '';
 }
 
 abbr,
 acronym {
-    border: 0;
+  border: 0;
 }
 
 [hidden],
 script {
-    display: none;
+  display: none;
 }
 
 a {
-    text-decoration: none!important;
-    outline: medium none;
+  text-decoration: none !important;
+  outline: medium none;
 }
 
 input,
 textarea {
-    outline: medium none;
+  outline: medium none;
 }
 
 img {
-    vertical-align: middle;
-    max-width: 100%;
-    /*    display: block;*/
-    height: auto;
-    margin: auto;
+  vertical-align: middle;
+  max-width: 100%;
+  /*    display: block;*/
+  height: auto;
+  margin: auto;
 }
-.Wrapper{
-    min-height: 100%;
-    position: relative;
-    z-index:99;
+
+.Wrapper {
+  min-height: 100%;
+  position: relative;
+  z-index: 99;
 }
-.Wrapper .FooterPush{
-    height: 180px; /* Footer 的高度 */
+
+.Wrapper .FooterPush {
+  height: 180px; /* Footer 的高度 */
 }
-.header{
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background-color: #333;
-    color: white;
-    position: relative;
-    top: 0;
+
+.header {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #333;
+  color: white;
+  position: relative;
+  top: 0;
+  font-size: 16px;
+}
+.header .top-menu{
+  display: inline-block;
+  height:50px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+  position: relative;
+  width: 64px;
+}
+.header .top-menu::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  top: 50px;
+  left: 0;
+  background-color: #ffc97a;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+.header .top-menu.active{
+  border-bottom: 2px solid #ffc97a;
+  color:#ffc97a
+}
+.header .top-menu:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .footer {
-    clear: both;
-    position: relative;
-    margin-top: -30px;
-    width: 100%;
-    height: 30px;
-    text-align: center;
-    z-index: 111;
-    color: #333;
+  clear: both;
+  position: relative;
+  margin-top: -30px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  z-index: 111;
+  color: #333;
 }
 
-.topIcon{
-    display: none;
-    position: fixed;
-    width: 50px;
-    height: 50px;
-    right: 0;
-    bottom: 50px;
-    background-color: white;
-    cursor: pointer;
-    z-index: 99;
-}
-.topIcon:hover{
-    background-color: #999;
-}
-.topIcon .layui-icon{
-    display: inherit;
-    font-size: 50px;
+.topIcon {
+  display: none;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  right: 0;
+  bottom: 50px;
+  background-color: white;
+  cursor: pointer;
+  z-index: 99;
 }
 
-.nullBox{
-  height:1px;
+.topIcon:hover {
+  background-color: #999;
+}
+
+.topIcon .layui-icon {
+  display: inherit;
+  font-size: 50px;
+}
+
+.nullBox {
+  height: 1px;
+}
+
+/*禁止复制*/
+*{
+  user-select: none;
 }

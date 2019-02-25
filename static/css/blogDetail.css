@@ -4,7 +4,7 @@
 }
 .blogDetailBox{
   width: 100%;
-  min-height:700px;
+  min-height:800px;
   background-color: white;
   overflow: hidden;
 }
@@ -13,19 +13,42 @@
   margin: 20px 0;
   text-align: center;
 }
+.blogDetailBox .blog-content{
+  text-align: left;
+  text-indent:45px;/*首行缩进*/
+  margin-top: 20px;
+  margin-bottom: 10px;
+  min-height: 550px;
+}
 
 /*点击排行*/
 .rightBox .clickRankBox{
   width: 100%;
-  height:550px;
+  height:440px;
   background-color: white;
   border-radius: 6px;
+  margin-top:0px !important;
   overflow: hidden;
+}
+.clickRankBox li,.recommendBox li,.friendHrefBox li{
+  text-align: left;
+  width: 90%;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 3px 3px;
+  background: #f6f6f6;
+}
+.clickRankBox li:hover,.recommendBox li:hover,.friendHrefBox li:hover{
+  color:red
 }
 /*推荐文章*/
 .rightBox .recommendBox{
   width: 100%;
-  height:550px;
+  height:440px;
   background-color: white;
   border-radius: 6px;
   margin-top: 20px;
@@ -34,7 +57,7 @@
 /*网站标签*/
 .rightBox .tagBox{
   width: 100%;
-  height:550px;
+  height:400px;
   background-color: white;
   border-radius: 6px;
   margin-top: 20px;

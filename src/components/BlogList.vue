@@ -27,7 +27,7 @@
           <div style="clear: both;"></div>
         </div>
         <template v-for="(blog,index) in blogs">
-          <div data-scroll-reveal="enter top  over 1.33s" class="blogBox layui-col-xs12" @click="goDetail(index)">
+          <div data-scroll-reveal="enter top  over 0.3s" class="blogBox layui-col-xs12" @click="goDetail(index)">
             <div class="blog-name">{{blog.name}}</div>
             <div class="blog-body">
               <div class="blog-img layui-col-xs4 layui-col-md2">
@@ -71,9 +71,12 @@
           <h2 class="htitle">
             热门点击
           </h2>
-          <ul style="margin-left: 20px;">
+          <ul style="margin-left: 15px;">
             <template v-for="(blog,index) in blogs">
-              <li style="text-align: left;">{{index+1}}.{{blog.name}}</li>
+              <li @click="goDetail(blog.name)" :title="blog.name">
+                <i :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
+                &nbsp;&nbsp;{{blog.name}}
+              </li>
             </template>
           </ul>
         </div>
@@ -81,17 +84,23 @@
           <h2 class="htitle">
             推荐博文
           </h2>
-          <ul>
-            <li></li>
+          <ul style="margin-left: 15px;">
+            <template v-for="(blog,index) in blogs">
+              <li @click="goDetail(blog.name)" :title="blog.name">
+                <i>{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
+                &nbsp;&nbsp;{{blog.name}}
+              </li>
+            </template>
           </ul>
         </div>
         <div class="friendHrefBox">
           <h2 class="htitle">
             友情链接
           </h2>
-          <ul>
-            <li>11</li>
-            <li>22</li>
+          <ul style="margin-left: 15px;">
+            <template v-for=" friend in friendHref">
+              <li style="text-align: center;"><a :href="friend.href" target="_blank">{{friend.name}}</a></li>
+            </template>
           </ul>
         </div>
         <div class="musicBox">
@@ -116,12 +125,13 @@
     data() {
       return {
         scrollReveal: scrollReveal(),
-        blogs: [{"name": 11111}, {"name": 22222}, {"name": 33333}, {"name": 44444}, {"name": 55555}, {"name": 66666}, {"name": 77777}, {"name": 88888}, {"name": 9999}, {"name": 10000}]
+        blogs: [{"name": 11111}, {"name": 22222}, {"name": 33333}, {"name": 44444}, {"name": 55555}, {"name": 66666}, {"name": 77777}, {"name": 88888}, {"name": 9999}, {"name": 10000}],
+        friendHref:[{"name":"杨青","href":"https://www.yangqq.com/"}]
       }
     },
     mounted: function () {
       var that = this;
-      console.log("加载")
+      $(".index").addClass("active");
       that.init();
     },
     methods: {
