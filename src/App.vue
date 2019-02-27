@@ -1,7 +1,7 @@
 <template>
   <div id="app" v-cloak>
     <ul class="header">
-      <li class="top-menu index" @click="goA(1)" style="width: 32px;">首页</li>
+      <li class="top-menu index" @click="goA(1)">网站首页</li>
       <li class="top-menu blog-type" @click="goA(2)">博客分类
 
       </li>

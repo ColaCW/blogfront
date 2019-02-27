@@ -7,7 +7,7 @@
     <div class="nullBox layui-col-xs0 layui-col-md2"></div>
   </div>
 </template>
-<style>
+<style scoped>
   @import '../../static/css/resourceShare.css';
 </style>
 <script>

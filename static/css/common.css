@@ -4,17 +4,14 @@
 
 /* css reset */
 
+
 html,
 body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  user-select: none;
+  /*user-select: none;*/
   color: #333;
   outline: none;
-  /*background-color: #e6e6e6;*/
-  margin: 0;
-  padding: 0;
-  height: 100%;
 }
 
 body,
@@ -113,7 +110,7 @@ script {
 }
 
 a {
-  text-decoration: none !important;
+  text-decoration: none!important;
   outline: medium none;
 }
 

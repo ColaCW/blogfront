@@ -3,10 +3,10 @@
   margin-bottom: 40px;
 }
 .blogDetailBox{
-  width: 100%;
   min-height:800px;
   background-color: white;
   overflow: hidden;
+  padding: 20px;
 }
 .blogDetailBox .blog-name{
   font-size: 20px;
@@ -43,7 +43,7 @@
   background: #f6f6f6;
 }
 .clickRankBox li:hover,.recommendBox li:hover,.friendHrefBox li:hover{
-  color:red
+  transform: scale(1.1);
 }
 /*推荐文章*/
 .rightBox .recommendBox{

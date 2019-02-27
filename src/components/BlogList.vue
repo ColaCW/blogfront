@@ -112,7 +112,7 @@
     <div style="clear: both"></div>
   </div>
 </template>
-<style>
+<style scoped>
   @import '../../static/css/blogList.css';
 </style>
 <script>

@@ -4,9 +4,9 @@
     <div class="main layui-col-xs12 layui-col-md8">
       <div class="leftBox layui-col-xs12 layui-col-md9" style="margin-bottom:20px;">
         <div class="blogDetailBox">
-            <div style="text-align: right;margin-top: 10px;">
-              您现在的位置是
-              <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#333;width: 95%;margin:0 auto;"/>
+            <div style="text-align: left;">
+              <b>您现在的位置是:</b>&nbsp;&nbsp;网站首页&nbsp;>&nbsp;关于我
+              <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#333;"/>
             </div>
             <div class="blog-name">博客标题</div>
             <div>
@@ -38,7 +38,7 @@
             <template v-for="(blog,index) in blogs">
               <li @click="goDetail(blog.name)" :title="blog.name">
                 <i :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
-                &nbsp;&nbsp;{{blog.name}}
+                &nbsp;&nbsp;<span :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{blog.name}}</span>
               </li>
             </template>
           </ul>
@@ -50,8 +50,8 @@
           <ul style="margin-left: 15px;">
             <template v-for="(blog,index) in blogs">
               <li @click="goDetail(blog.name)" :title="blog.name">
-                <i>{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
-                &nbsp;&nbsp;{{blog.name}}
+                <i :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
+                &nbsp;&nbsp;<span :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{blog.name}}</span>
               </li>
             </template>
           </ul>
@@ -79,7 +79,7 @@
     <div class="nullBox layui-col-xs0 layui-col-md2"></div>
   </div>
 </template>
-<style>
+<style scoped>
   @import '../../static/css/blogDetail.css';
 </style>
 <script>
