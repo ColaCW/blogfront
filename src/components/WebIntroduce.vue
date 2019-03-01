@@ -21,12 +21,6 @@
           <div class="blog-content">
             正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
           </div>
-          <div>
-            <img src="../../static/img/点赞.png" @click="good()" v-show="!isGood" style="cursor: pointer;"/>
-            <img src="../../static/img/点赞1.png" v-show="isGood"/>
-            <p>（1）</p>
-            <p>点个赞吧</p>
-          </div>
         </div>
       </div>
       <div class="rightBox layui-col-xs12 layui-col-md3" style="padding-left: 35px;margin-bottom:20px;">
@@ -64,16 +58,6 @@
             <li></li>
           </ul>
         </div>
-        <div class="friendHrefBox">
-          <h2 class="htitle">
-            友情链接
-          </h2>
-          <ul style="margin-left: 15px;">
-            <template v-for=" friend in friendHref">
-              <li><a :href="friend.href" target="_blank">{{friend.name}}</a></li>
-            </template>
-          </ul>
-        </div>
       </div>
     </div>
     <div class="nullBox layui-col-xs0 layui-col-md2"></div>
@@ -88,14 +72,14 @@
     data () {
       return {
         id:"",
-        isGood:false,
+        webIntroduceBlog:{},
         blogs:[{"name":11111},{"name":22222},{"name":33333},{"name":44444},{"name":55555},{"name":66666},{"name":77777},{"name":88888},{"name":9999},{"name":10000}],
-        friendHref:[{"name":"杨青","href":"https://www.yangqq.com/"}]
       }
     },
     mounted:function(){
       var that = this;
       $(".web-introduce").addClass("active");
+      $(".typeSelect").hide();
       that.init();
     },
     methods: {
@@ -109,12 +93,10 @@
       },
       getBlog:function () {
         var that = this;
+        var data = {
+          id:that.id
+        };
         console.log(that.id);
-      },
-      good:function () {
-        var that = this;
-        console.log(that.id);
-        that.isGood = true;
       },
       //进入文章详情
       goDetail:function (id) {

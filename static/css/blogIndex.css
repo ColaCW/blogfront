@@ -1,0 +1,191 @@
+.main{
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.main .blogBox{
+  width: 100%;
+  height:220px;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.blogBox:hover{
+  box-shadow: #ccc 2px 2px 8px;
+}
+.blogBox .blog-name{
+  text-align: left;
+  font-size: 17px;
+  height:40px;
+  line-height: 40px;
+  padding: 20px 20px 0 20px;
+}
+.blogBox .blog-body{
+  height:140px;
+  padding: 0px 20px 20px 20px;
+}
+.blogBox .blog-body .blog-img{
+  height:100%;
+}
+.blogBox .blog-body .blog-content{
+  height:100%;
+  text-align: initial;
+  padding-left:20px;
+}
+.blogBox .blog-body .blog-content .blog-articel{
+  height:85%;
+  max-height: 85%;
+}
+.blogBox .blog-body .blog-content .blog-other .read-article{
+  background-color: #333;
+  color:white;
+  border-radius: 6px;
+  padding: 3px 10px;
+}
+.banner-box{
+  width: 100%;
+  min-height:250px;
+}
+.banner-box .banner-img img{
+  width: 100%;
+  height: 250px;
+  border-radius: 6px;
+}
+.swiper-pagination-bullet-active{
+  background-color:white !important;
+}
+.banner-box .banner-message .message1,.banner-box .banner-message .message1 img,.banner-box .banner-message .message2,.banner-box .banner-message .message2 img{
+  height:120px;
+  border-radius: 6px;
+}
+.banner-box .banner-message .message2{
+  margin-top:10px;
+}
+/*名片*/
+.rightBox .userBox{
+  width: 100%;
+  height:250px;
+  background: url(../../static/img/quote-bg.png) no-repeat top right rgba(42,42,42,1);
+  border-radius: 6px;
+  color:white;
+  animation: myrotate 1.3s linear;
+}
+@keyframes myrotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -m-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -m-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.userBox h2 {
+  font-size: 22px;
+  color: #89919a;
+  font-weight: normal;
+  padding: 20px 0 30px 30px;
+  text-align: left;
+}
+.userBox img{
+  border-radius: 100px;
+}
+.userBox p{
+  text-align: left;
+  font-size: 12px;
+  padding: 0 0 0 20px;
+  line-height: 28px;
+  text-shadow: 0px 1px 2px rgba(0,0,0,.5);
+  color: #d0d2d4;
+  -webkit-animation: animations2 5s ease-in-out 5s;
+  -moz-animation: animations2 5s ease-in-out 5s;
+  -o-animation: animations2 5s ease-in-out 5s;
+  -ms-animation: animations2 5s ease-in-out 5s;
+  animation: animations2 5s ease-in-out 5s;
+}
+/*点击排行*/
+.rightBox .clickRankBox{
+  width: 100%;
+  height:440px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+.clickRankBox li,.recommendBox li,.friendHrefBox li{
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: #f6f6f6;
+  width: 90%;
+}
+.clickRankBox li:hover,.recommendBox li:hover,.friendHrefBox li:hover{
+  transform: scale(1.1);
+}
+/*推荐文章*/
+.rightBox .recommendBox{
+  width: 100%;
+  height:440px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+/*友情链接*/
+.rightBox .friendHrefBox{
+  width: 100%;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+/*音乐播放*/
+.rightBox .musicBox{
+  margin-top:20px;
+}
+.htitle{
+  text-align: left;
+  font-size: 16px;
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
+  color: #484848;
+  font-weight: normal;
+  position: relative;
+  margin: 10px 20px 10px 20px;
+}
+.htitle::after{
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 2px;
+  background: #000;
+  left: 0;
+  bottom: 0;
+  -moz-transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+@media screen and (max-width:750px) {
+  .banner-message{
+    display: none;
+  }
+  .rightBox{
+    padding-left:0 !important;
+  }
+  .blogBox .blog-body .blog-content .blog-articel{
+    height: 70%;
+    max-height: 70% !important;
+  }
+}

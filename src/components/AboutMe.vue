@@ -30,6 +30,7 @@
           <img src="../../static/img/微信.jpg" style="border-radius: 6px;"/>
         </div>
       </div>
+      <div style="clear: both"></div>
     </div>
     <div class="nullBox layui-col-xs0 layui-col-md2"></div>
   </div>
@@ -47,6 +48,7 @@
     mounted:function(){
       var that = this;
       $(".about-me").addClass("active");
+      $(".typeSelect").hide();
       that.init();
     },
     methods: {

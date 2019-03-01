@@ -35,7 +35,7 @@
             热门点击
           </h2>
           <ul style="margin-left: 15px;">
-            <template v-for="(blog,index) in blogs">
+            <template v-for="(blog,index) in viewBlogs">
               <li @click="goDetail(blog.name)" :title="blog.name">
                 <i :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
                 &nbsp;&nbsp;<span :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{blog.name}}</span>
@@ -48,7 +48,7 @@
             推荐博文
           </h2>
           <ul style="margin-left: 15px;">
-            <template v-for="(blog,index) in blogs">
+            <template v-for="(blog,index) in goodBlogs">
               <li @click="goDetail(blog.name)" :title="blog.name">
                 <i :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
                 &nbsp;&nbsp;<span :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{blog.name}}</span>
@@ -62,16 +62,6 @@
           </h2>
           <ul style="margin-left: 15px;">
             <li></li>
-          </ul>
-        </div>
-        <div class="friendHrefBox">
-          <h2 class="htitle">
-            友情链接
-          </h2>
-          <ul style="margin-left: 15px;">
-            <template v-for=" friend in friendHref">
-              <li><a :href="friend.href" target="_blank">{{friend.name}}</a></li>
-            </template>
           </ul>
         </div>
       </div>
@@ -89,16 +79,28 @@
       return {
         id:"",
         isGood:false,
+        previewBlog:{},
         blogs:[{"name":11111},{"name":22222},{"name":33333},{"name":44444},{"name":55555},{"name":66666},{"name":77777},{"name":88888},{"name":9999},{"name":10000}],
-        friendHref:[{"name":"杨青","href":"https://www.yangqq.com/"}]
+        goodBlogs:[],
+        viewBlogs:[]
       }
+    },
+    watch: {
+      $route: "checkRouter"
     },
     mounted:function(){
       var that = this;
       $(".header .active").removeClass("active");
+      $(".typeSelect").hide();
       that.init();
     },
     methods: {
+      checkRouter(newVal, oldVa) {
+        var that = this;
+        if(oldVa.path !== newVal.path){
+          that.init();
+        }
+      },
       init:function () {
         var that = this;
         $("body,html").animate({
@@ -106,22 +108,55 @@
         });
         that.id = that.$route.params.id;
         that.getBlog();
+        that.getViewBlogs();
+        that.getGoodBlogs();
       },
       getBlog:function () {
         var that = this;
-
-        console.log(that.id);
+        var data = {
+          id:that.id
+        };
+        Web.post(Web.host + "/api/blog/getBlog.do".data,function (res) {
+          if(res.status){
+            that.previewBlog = res.data;
+          }
+        })
       },
+      //点赞
       good:function () {
         var that = this;
-        console.log(that.id);
-        that.isGood = true;
+        var data = {
+          id:that.id
+        }
+        Web.post(Web.host + "/api/blog/good.do",data,function (res) {
+          if(res.status){
+            that.previewBlog.likeNum = res.data;
+            that.isGood = true;
+          }
+        })
       },
       //进入文章详情
       goDetail:function (id) {
-        console.log(id)
         var that = this;
         that.$router.push({name: 'BlogDetail', params: {id: id}});
+      },
+      //获取推荐文章
+      getGoodBlogs:function () {
+        var that = this;
+        Web.post(Web.host + "/api/blog/getGoodBlogs.do",null,function (res) {
+          if(res.status){
+            that.goodBlogs = res.data;
+          }
+        })
+      },
+      //获取热门点击文章
+      getViewBlogs:function () {
+        var that = this;
+        Web.post(Web.host + "/api/blog/getViewBlogs.do",null,function (res) {
+          if(res.status){
+            that.viewBlogs = res.data;
+          }
+        })
       },
     }
   }

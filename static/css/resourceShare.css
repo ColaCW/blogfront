@@ -1,0 +1,17 @@
+.shareBox{
+  min-height: 600px;
+  background-color: white;
+  margin-top: 20px;
+  padding: 20px;
+}
+.shareBox li{
+  cursor: pointer;
+  background-color: #f6f6f6;
+  text-align: left;
+  height: 30px;
+  line-height: 30px;
+  margin: 10px auto;
+}
+.shareBox li:hover{
+  transform: scale(1.01);
+}

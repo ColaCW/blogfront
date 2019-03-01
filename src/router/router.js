@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import BlogIndex from '@/components/BlogIndex'
 import BlogList from '@/components/BlogList'
 import BlogDetail from '@/components/BlogDetail'
 import ResourceShare from '@/components/ResourceShare'
@@ -12,6 +13,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'BlogIndex',
+      component: BlogIndex
+    },
+    {
+      path: '/BlogList/:categary',
       name: 'BlogList',
       component: BlogList
     },
