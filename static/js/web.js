@@ -10,7 +10,9 @@ function getHost() {
 var Web = {
 
   // host: getHost(),
-  host: "http://127.0.0.1:80",
+  // host: "http://127.0.0.1:80",
+  host: "http://www.lgqoxb.top",
+  img_host:"http://lgqoxb.top",
 
   get: function (url, data, success) {
     var data2 = "";
@@ -124,7 +126,7 @@ var Web = {
 
   getSrc:function(s){
     if(s && s.indexOf("http")==-1){
-      s=this.host+"/"+s;
+      s = this.img_host+"/"+s;
     }else{
       s='/f/_.gif';
     }

@@ -3,28 +3,27 @@
     <div class="nullBox layui-col-xs0 layui-col-md2"></div>
     <div class="main layui-col-xs12 layui-col-md8">
       <div class="leftBox layui-col-xs12 layui-col-md9" style="margin-bottom:20px;">
-        <div class="blogDetailBox">
+        <div class="blogDetailBox" v-if="previewBlog">
             <div style="text-align: left;">
-              <b>您现在的位置是:</b>&nbsp;&nbsp;网站首页&nbsp;>&nbsp;关于我
+              <b>您现在的位置是:</b>&nbsp;&nbsp;网站首页&nbsp;>&nbsp;博客详情
               <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#333;"/>
             </div>
-            <div class="blog-name">博客标题</div>
+            <div class="blog-name">{{previewBlog.name}}</div>
             <div>
               <img src="../../static/img/标签.png" style="float: left;margin-left: 15px;"/>
-              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【JAVA·trim()】</div>
+              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【{{previewBlog.blogCategoryObj}}·】</div>
               <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
-              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">20</div>
+              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">{{previewBlog.viewNum}}</div>
               <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
-              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;">2019-09-09</div>
+              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;">{{previewBlog.createAt.substring(0,10)}}</div>
               <div style="clear: both"></div>
             </div>
-            <div class="blog-content">
-              正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文
+            <div class="blog-content" id="blog-content">
             </div>
             <div>
               <img src="../../static/img/点赞.png" @click="good()" v-show="!isGood" style="cursor: pointer;"/>
               <img src="../../static/img/点赞1.png" v-show="isGood"/>
-              <p>（1）</p>
+              <p>（{{previewBlog.likeNum}}）</p>
               <p>点个赞吧</p>
             </div>
         </div>
@@ -79,7 +78,7 @@
       return {
         id:"",
         isGood:false,
-        previewBlog:{},
+        previewBlog:null,
         blogs:[{"name":11111},{"name":22222},{"name":33333},{"name":44444},{"name":55555},{"name":66666},{"name":77777},{"name":88888},{"name":9999},{"name":10000}],
         goodBlogs:[],
         viewBlogs:[]
@@ -91,7 +90,6 @@
     mounted:function(){
       var that = this;
       $(".header .active").removeClass("active");
-      $(".typeSelect").hide();
       that.init();
     },
     methods: {
@@ -116,9 +114,16 @@
         var data = {
           id:that.id
         };
-        Web.post(Web.host + "/api/blog/getBlog.do".data,function (res) {
+        Web.post(Web.host + "/api/blog/getBlog.do",data,function (res) {
           if(res.status){
             that.previewBlog = res.data;
+            console.log(that.previewBlog)
+            that.$nextTick(function () {
+              var text = that.previewBlog.markdown;
+              var converter = new showdown.Converter();
+              var html = converter.makeHtml(text);
+              document.getElementById("blog-content").innerHTML = html;
+            })
           }
         })
       },

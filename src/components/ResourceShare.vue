@@ -29,7 +29,6 @@
     mounted:function(){
       var that = this;
       $(".resource-share").addClass("active");
-      $(".typeSelect").hide();
       that.init();
     },
     methods: {

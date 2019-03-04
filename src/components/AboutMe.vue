@@ -48,7 +48,6 @@
     mounted:function(){
       var that = this;
       $(".about-me").addClass("active");
-      $(".typeSelect").hide();
       that.init();
     },
     methods: {

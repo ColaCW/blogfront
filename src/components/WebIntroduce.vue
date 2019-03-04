@@ -79,7 +79,6 @@
     mounted:function(){
       var that = this;
       $(".web-introduce").addClass("active");
-      $(".typeSelect").hide();
       that.init();
     },
     methods: {

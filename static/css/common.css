@@ -179,11 +179,12 @@ img {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-.top-menu ul{
+.top-menu .typeSelect{
   background-color: #333;
   position: absolute;
   z-index: 999;
-  width: 65px;
+  width: 100%;
+  top: 50px;
   display: none;
 }
 .top-menu ul li{
@@ -197,7 +198,9 @@ img {
 .typeSelect li.active{
   background-color:  #ffc97a;
 }
-
+.blog-type:hover .typeSelect{
+  display: block !important;
+}
 .footer {
   clear: both;
   position: relative;

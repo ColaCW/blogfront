@@ -27,22 +27,27 @@
           <div style="clear: both;"></div>
         </div>
         <template v-for="(blog,index) in blogs">
-          <div data-scroll-reveal="enter top  over 0.3s" class="blogBox layui-col-xs12" @click="goDetail(index)">
+          <div data-scroll-reveal="enter top  over 0.3s" class="blogBox layui-col-xs12" @click="goDetail(blog.id)">
             <div class="blog-name">{{blog.name}}</div>
             <div class="blog-body">
               <div class="blog-img layui-col-xs4 layui-col-md2">
-                <img src="../../static/img/666.gif" style="width: 100%;height:100%"/>
+                <template v-if="blog.imgSrc">
+                  <img :src="getSrc(blog.imgSrc)" style="width: 100%;height:100%"/>
+                </template>
+                <template v-else>
+                  <img src="../../static/img/666.gif" style="width: 100%;height:100%"/>
+                </template>
               </div>
               <div class="blog-content layui-col-xs8 layui-col-md10">
-                <div class="blog-articel">sdasd</div>
+                <div class="blog-articel">{{blog.markdown}}</div>
                 <div class="blog-other">
                   <img src="../../static/img/标签.png" style="float: left;margin-left: 15px;"/>
-                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【JAVA·trim()】</div>
+                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【{{blog.blogCategoryObj.name}}·{{blog.remark}}】</div>
                   <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
-                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">20</div>
+                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">{{blog.viewNum}}</div>
                   <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
-                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;">2019-09-09</div>
-                  <div class="read-article" style="float: right;margin-right: 10px" @click.stop="goDetail(index)">阅读原文</div>
+                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;">{{blog.createAt.substring(0,10)}}</div>
+                  <div class="read-article" style="float: right;margin-right: 10px" @click.stop="goDetail(blog.id)">阅读原文</div>
                   <div style="clear: both"></div>
                 </div>
               </div>
@@ -134,7 +139,6 @@
     mounted: function () {
       var that = this;
       $(".index").addClass("active");
-      $(".typeSelect").hide();
       that.init();
     },
     methods: {
@@ -165,15 +169,12 @@
         var data = {
           categary:"",
           page:page
-        }
+        };
         Web.post(Web.host + "/api/blog/getBlogs.do",data,function (res) {
           if(res.status){
             that.page = res.data.pageable.pageNumber+1;
-            if(that.page == 1){
-              that.blogs = res.data.content;
-            }else{
-              that.blogs.push(res.data.content);
-            }
+            that.blogs = res.data.content;
+            console.log(that.blogs);
             that.$nextTick(function () {
               //加载文章滚动条动画
               that.scrollReveal.reveal('.blogBox', {
@@ -212,8 +213,17 @@
       //进入文章详情
       goDetail:function (id) {
         var that = this;
+        var data = {
+          id:id
+        }
+        Web.post(Web.host + "/api/blog/addViewNum.do",data,function (res) {
+          that.$router.push({name: 'BlogDetail', params: {id: id}});
+        })
         that.$router.push({name: 'BlogDetail', params: {id: id}});
       },
+      getSrc:function (imgSrc) {
+        return Web.getSrc(imgSrc);
+      }
     }
   }
 </script>

@@ -2,8 +2,8 @@
   <div id="app" v-cloak>
     <ul class="header">
       <li class="top-menu index" @click="goA(1)" @mouseover="show('none')">网站首页</li>
-      <li class="top-menu blog-type" style="position: relative" @click="show('block')" >博客分类>
-        <ul class="typeSelect" ref="typeSelect">
+      <li class="top-menu blog-type" style="position: relative">博客分类
+        <ul class="typeSelect" ref="typeSelect" @mouseleave="show('none')" @mouseover="show('block')">
           <template v-for="categary in categarys">
             <li @click="goA(2,categary.name)" :class="categary.name">{{categary.name}}</li>
           </template>
