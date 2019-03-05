@@ -6,7 +6,7 @@
         <div class="content">
           <div style="text-align: left;">
             <b>您现在的位置是:</b>&nbsp;&nbsp;网站首页&nbsp;>&nbsp;关于我
-            <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#333;"/>
+            <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#ddd;"/>
           </div>
           <div style="text-align: left;margin-top: 20px;">
             <p><b style="font-size: 17px;">关于站长：</b></p>

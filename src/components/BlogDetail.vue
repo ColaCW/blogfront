@@ -6,20 +6,30 @@
         <div class="blogDetailBox" v-if="previewBlog">
             <div style="text-align: left;">
               <b>您现在的位置是:</b>&nbsp;&nbsp;网站首页&nbsp;>&nbsp;博客详情
-              <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#333;"/>
+              <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#ddd;"/>
             </div>
             <div class="blog-name">{{previewBlog.name}}</div>
-            <div>
-              <img src="../../static/img/标签.png" style="float: left;margin-left: 15px;"/>
-              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【{{previewBlog.blogCategoryObj}}·】</div>
-              <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
-              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">{{previewBlog.viewNum}}</div>
-              <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
-              <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;">{{previewBlog.createAt.substring(0,10)}}</div>
-              <div style="clear: both"></div>
-            </div>
-            <div class="blog-content" id="blog-content">
-            </div>
+            <ul style="text-align: left;">
+              <li style="display: inline-block;margin-left: 15px;">
+                <img src="../../static/img/分类.png" style="width: 18px;float: left;"/>
+                <span style="margin-left:5px;cursor: pointer;">{{previewBlog.blogCategoryObj.name}}</span>
+              </li>
+              <li style="display: inline-block;margin-left: 15px;">
+                <img src="../../static/img/浏览.png" style="width: 19px;float: left;"/>
+                <span style="margin-left:5px;">{{previewBlog.viewNum}}</span>
+              </li>
+              <li style="display: inline-block;margin-left: 15px;">
+                <img src="../../static/img/日期.png" style="width: 18px;float: left;"/>
+                <span style="margin-left:5px;">{{previewBlog.createAt.substring(0,10)}}</span>
+              </li>
+              <li style="display: inline-block;margin-left: 15px;">
+                <template v-if="previewBlog.tags" v-for="tag in previewBlog.tags.split(',')">
+                  <span style="background-color: #e6e6e6;border-radius: 6px;padding: 5px 12px;margin-left: 5px">{{tag}}</span>
+                </template>
+              </li>
+            </ul>
+
+            <div class="blog-content" id="blog-content" v-html="previewBlog.content"></div>
             <div>
               <img src="../../static/img/点赞.png" @click="good()" v-show="!isGood" style="cursor: pointer;"/>
               <img src="../../static/img/点赞1.png" v-show="isGood"/>
@@ -55,14 +65,6 @@
             </template>
           </ul>
         </div>
-        <div class="tagBox">
-          <h2 class="htitle">
-            网站标签
-          </h2>
-          <ul style="margin-left: 15px;">
-            <li></li>
-          </ul>
-        </div>
       </div>
     </div>
     <div class="nullBox layui-col-xs0 layui-col-md2"></div>
@@ -81,7 +83,8 @@
         previewBlog:null,
         blogs:[{"name":11111},{"name":22222},{"name":33333},{"name":44444},{"name":55555},{"name":66666},{"name":77777},{"name":88888},{"name":9999},{"name":10000}],
         goodBlogs:[],
-        viewBlogs:[]
+        viewBlogs:[],
+        blogTags:[]
       }
     },
     watch: {
@@ -108,6 +111,7 @@
         that.getBlog();
         that.getViewBlogs();
         that.getGoodBlogs();
+        that.getBlogTags();
       },
       getBlog:function () {
         var that = this;
@@ -118,12 +122,6 @@
           if(res.status){
             that.previewBlog = res.data;
             console.log(that.previewBlog)
-            that.$nextTick(function () {
-              var text = that.previewBlog.markdown;
-              var converter = new showdown.Converter();
-              var html = converter.makeHtml(text);
-              document.getElementById("blog-content").innerHTML = html;
-            })
           }
         })
       },
@@ -160,6 +158,16 @@
         Web.post(Web.host + "/api/blog/getViewBlogs.do",null,function (res) {
           if(res.status){
             that.viewBlogs = res.data;
+          }
+        })
+      },
+      //获取文章标签
+      getBlogTags:function () {
+        var that = this;
+        Web.post(Web.host + "/api/blog/getBlogTags.do",null,function (res) {
+          if(res.status){
+            that.blogTags = res.data;
+            console.log(that.blogTags)
           }
         })
       },

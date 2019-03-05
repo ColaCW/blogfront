@@ -6,7 +6,7 @@
         <div class="blogDetailBox">
           <div style="text-align: left;">
             <b>您现在的位置是:</b>&nbsp;&nbsp;网站首页&nbsp;>&nbsp;网站介绍
-            <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#333;"/>
+            <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#ddd;"/>
           </div>
           <div class="blog-name">博客标题</div>
           <div>

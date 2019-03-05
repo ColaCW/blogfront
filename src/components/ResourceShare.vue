@@ -5,7 +5,7 @@
       <ul class="shareBox">
         <div style="text-align: left;">
           <b>您现在的位置是:</b>&nbsp;&nbsp;网站首页&nbsp;>&nbsp;资源分享
-          <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#333;"/>
+          <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#ddd;"/>
         </div>
         <template v-for="share in shareList">
           <a :href="share.href" target="_blank"><li>【视频】{{share.name}} （提取码：{{share.MA}}）</li></a>

@@ -39,10 +39,10 @@
                 </template>
               </div>
               <div class="blog-content layui-col-xs8 layui-col-md10">
-                <div class="blog-articel">{{blog.markdown}}</div>
+                <div class="blog-articel" v-html="blog.brief"></div>
                 <div class="blog-other">
-                  <img src="../../static/img/标签.png" style="float: left;margin-left: 15px;"/>
-                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【{{blog.blogCategoryObj.name}}·{{blog.remark}}】</div>
+                  <img src="../../static/img/分类.png" style="float: left;margin-left: 15px;"/>
+                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【{{blog.blogCategoryObj.name}}】</div>
                   <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
                   <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">{{blog.viewNum}}</div>
                   <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
@@ -213,17 +213,11 @@
       //进入文章详情
       goDetail:function (id) {
         var that = this;
-        var data = {
-          id:id
-        }
-        Web.post(Web.host + "/api/blog/addViewNum.do",data,function (res) {
-          that.$router.push({name: 'BlogDetail', params: {id: id}});
-        })
         that.$router.push({name: 'BlogDetail', params: {id: id}});
       },
       getSrc:function (imgSrc) {
         return Web.getSrc(imgSrc);
-      }
+      },
     }
   }
 </script>

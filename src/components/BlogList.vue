@@ -5,7 +5,7 @@
     <div class="main layui-col-xs12 layui-col-md8">
       <div style="text-align: left;">
         <b>您现在的位置是:</b>&nbsp;&nbsp;博客分类&nbsp;>&nbsp;{{categary}}
-        <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#333;"/>
+        <hr style="height: 2px;border: 0;margin: 0;margin-top:10px;background-color:#ddd;"/>
       </div>
       <div class="leftBox layui-col-xs12 layui-col-md9" style="margin-bottom:20px;">
         <template v-for="(blog,index) in blogs">
@@ -21,10 +21,10 @@
                 </template>
               </div>
               <div class="blog-content layui-col-xs8 layui-col-md10">
-                <div class="blog-articel">{{blog.markdown}}</div>
+                <div class="blog-articel" v-html="blog.brief"></div>
                 <div class="blog-other">
-                  <img src="../../static/img/标签.png" style="float: left;margin-left: 15px;"/>
-                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【{{blog.blogCategoryObj.name}}·{{blog.remark}}】</div>
+                  <img src="../../static/img/分类.png" style="float: left;margin-left: 15px;"/>
+                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【{{blog.blogCategoryObj.name}}】</div>
                   <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
                   <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">{{blog.viewNum}}</div>
                   <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
