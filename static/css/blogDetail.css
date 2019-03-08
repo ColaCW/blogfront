@@ -2,6 +2,12 @@
   margin-top: 20px;
   margin-bottom: 40px;
 }
+a{
+  color: red;
+}
+a:hover{
+  color: skyblue;
+}
 .blogDetailBox{
   min-height:800px;
   background-color: white;
@@ -15,7 +21,7 @@
 }
 .blogDetailBox .blog-content{
   text-align: left;
-  text-indent:45px;/*首行缩进*/
+  /*text-indent:45px;!*首行缩进*!*/
   margin-top: 20px;
   margin-bottom: 10px;
   min-height: 550px;

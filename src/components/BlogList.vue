@@ -14,7 +14,9 @@
             <div class="blog-body">
               <div class="blog-img layui-col-xs4 layui-col-md2">
                 <template v-if="blog.imgSrc">
-                  <img :src="getSrc(blog.imgSrc)" style="width: 100%;height:100%"/>
+                  <template v-for="(img,index) in blog.imgSrc.split(',')" v-if="index == 0">
+                    <img :src="getSrc(img)" style="width: 100%;height:100%"/>
+                  </template>
                 </template>
                 <template v-else>
                   <img src="../../static/img/666.gif" style="width: 100%;height:100%"/>

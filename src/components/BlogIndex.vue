@@ -32,7 +32,9 @@
             <div class="blog-body">
               <div class="blog-img layui-col-xs4 layui-col-md2">
                 <template v-if="blog.imgSrc">
-                  <img :src="getSrc(blog.imgSrc)" style="width: 100%;height:100%"/>
+                  <template v-for="(img,index) in blog.imgSrc.split(',')" v-if="index == 0">
+                    <img :src="getSrc(img)" style="width: 100%;height:100%"/>
+                  </template>
                 </template>
                 <template v-else>
                   <img src="../../static/img/666.gif" style="width: 100%;height:100%"/>
@@ -79,7 +81,7 @@
             <template v-for="(blog,index) in viewBlogs">
               <li @click="goDetail(blog.name)" :title="blog.name">
                 <i :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
-                &nbsp;&nbsp;{{blog.name}}
+                &nbsp;&nbsp;<span :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{blog.name}}</span>
               </li>
             </template>
           </ul>
@@ -91,8 +93,8 @@
           <ul style="margin-left: 15px;">
             <template v-for="(blog,index) in goodBlogs">
               <li @click="goDetail(blog.name)" :title="blog.name">
-                <i>{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
-                &nbsp;&nbsp;{{blog.name}}
+                <i :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
+                &nbsp;&nbsp;<span :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{blog.name}}</span>
               </li>
             </template>
           </ul>

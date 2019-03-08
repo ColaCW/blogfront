@@ -45,7 +45,7 @@
           </h2>
           <ul style="margin-left: 15px;">
             <template v-for="(blog,index) in viewBlogs">
-              <li @click="goDetail(blog.name)" :title="blog.name">
+              <li @click="goDetail(blog.id)" :title="blog.name">
                 <i :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
                 &nbsp;&nbsp;<span :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{blog.name}}</span>
               </li>
@@ -58,7 +58,7 @@
           </h2>
           <ul style="margin-left: 15px;">
             <template v-for="(blog,index) in goodBlogs">
-              <li @click="goDetail(blog.name)" :title="blog.name">
+              <li @click="goDetail(blog.id)" :title="blog.name">
                 <i :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{index<9 ? '&nbsp;&nbsp;' : ''}}{{index+1}}.</i>
                 &nbsp;&nbsp;<span :style="{'color':+index == 0 ? 'red': index == 1 ? 'green' : index == 2 ? 'blue' : ''}">{{blog.name}}</span>
               </li>
@@ -68,12 +68,13 @@
       </div>
     </div>
     <div class="nullBox layui-col-xs0 layui-col-md2"></div>
+    <div style="clear: both"></div>
   </div>
 </template>
-<style scoped>
+<style>
   @import '../../static/css/blogDetail.css';
   @import '../../static/css/style.css';
-  @import '../../static/css/foundation.min.css';
+  /*@import '../../static/css/foundation.min.css';*/
 </style>
 <script>
   import { Web } from "../../static/js/web.js";
@@ -123,7 +124,7 @@
         Web.post(Web.host + "/api/blog/getBlog.do",data,function (res) {
           if(res.status){
             that.previewBlog = res.data;
-            console.log(that.previewBlog)
+            that.$forceUpdate();
           }
         })
       },
