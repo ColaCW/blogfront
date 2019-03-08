@@ -35,7 +35,7 @@ a:hover{
   height:440px;
   background-color: white;
   border-radius: 6px;
-  margin-top:0px !important;
+  margin-top:0px;
   overflow: hidden;
 }
 .clickRankBox li,.recommendBox li,.friendHrefBox li{

@@ -71,10 +71,11 @@
     <div style="clear: both"></div>
   </div>
 </template>
-<style>
+<style scoped>
   @import '../../static/css/blogDetail.css';
+</style>
+<style>
   @import '../../static/css/style.css';
-  /*@import '../../static/css/foundation.min.css';*/
 </style>
 <script>
   import { Web } from "../../static/js/web.js";
