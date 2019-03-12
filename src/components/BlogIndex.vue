@@ -44,7 +44,7 @@
                 <div class="blog-articel" v-html="blog.brief"></div>
                 <div class="blog-other">
                   <img src="../../static/img/分类.png" style="float: left;margin-left: 15px;"/>
-                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;">【{{blog.blogCategoryObj.name}}】</div>
+                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;" @click="">【{{blog.blogCategoryObj.name}}】</div>
                   <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
                   <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">{{blog.viewNum}}</div>
                   <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
@@ -57,6 +57,22 @@
             </div>
           </div>
         </template>
+        <!--分页-->
+        <div class="page" v-if="blogs && blogs.length > 0">
+          <div>
+            <button class="" @click="goLastPage(currentPage-1)"  :style="(currentPage-1)<1 ? 'cursor: not-allowed;' : ''">上一页</button>
+            <ul>
+              <template v-for="pageNum in 5" v-if="(5*(pageIndex-1)+pageNum) <= totalPage">
+                <li :class="(5*(pageIndex-1)+pageNum) == currentPage ? 'active' : ''" @click="goPage(5*(pageIndex-1)+pageNum)">{{5*(pageIndex-1)+pageNum}}</li>
+              </template>
+            </ul>
+            <button class="" @click="goNextPage(currentPage+1)" :style="(currentPage+1) > totalPage ? 'cursor: not-allowed;' : ''">下一页</button>
+          </div>
+          <p>共{{totalPage}}页</p >
+          <div><b>到第</b><input type="text" placeholder="1" id="choosePageInput" v-model="skipPage" @keyup.enter="goPage(skipPage)"><b>页</b></div>
+          <button @click ="goPage(skipPage)">确定</button>
+        </div>
+        <!--分页-->
       </div>
       <div class="rightBox layui-col-xs12 layui-col-md3" style="padding-left: 35px;margin-bottom:20px;">
         <div class="userBox">
@@ -135,7 +151,10 @@
         goodBlogs:[],
         viewBlogs:[],
         friendHref:[{"name":"杨青","href":"https://www.yangqq.com/"}],
-        page:1
+        currentPage:1,//当前页
+        pageIndex:1,//五页一组，第几个5页
+        totalPage:1,//总页数
+        skipPage:"",//跳转页
       }
     },
     mounted: function () {
@@ -174,8 +193,12 @@
         };
         Web.post(Web.host + "/api/blog/getBlogs.do",data,function (res) {
           if(res.status){
-            that.page = res.data.pageable.pageNumber+1;
+            that.currentPage = res.data.pageable.pageNumber+1;
+            that.totalPage = res.data.totalPages;
             that.blogs = res.data.content;
+            $("body,html").animate({
+              scrollTop: 0
+            });
             that.$nextTick(function () {
               //加载文章滚动条动画
               that.scrollReveal.reveal('.blogBox', {
@@ -218,6 +241,34 @@
       },
       getSrc:function (imgSrc) {
         return Web.getSrc(imgSrc);
+      },
+      goPage:function(page){
+        var that = this;
+        if(page > that.totalPage){
+          Web.showToast("最大页数"+that.totalPage+"页");
+          return
+        }
+        that.getBlogs(page);
+      },
+      goLastPage:function (page) {
+        var that = this;
+        if(page < 1){
+          return
+        }
+        if(page == 5*(that.pageIndex-1)){
+          that.pageIndex--;
+        }
+        that.getBlogs(page);
+      },
+      goNextPage:function (page) {
+        var that = this;
+        if(page > that.totalPage){
+          return
+        }
+        if(page == 5*that.pageIndex+1){
+          that.pageIndex++;
+        }
+        that.getBlogs(page);
       },
     }
   }
