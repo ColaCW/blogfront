@@ -128,10 +128,10 @@ img {
   margin: auto;
 }
 a{
-  color: blue;
+  color: blue !important;
 }
 a:hover{
-  color:red;
+  color:red !important;
 }
 
 .Wrapper {
