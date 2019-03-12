@@ -32,7 +32,7 @@ a:hover{
 /*点击排行*/
 .rightBox .clickRankBox{
   width: 100%;
-  height:440px;
+  height:400px;
   background-color: white;
   border-radius: 6px;
   margin-top:0px;
@@ -43,7 +43,7 @@ a:hover{
   width: 90%;
   cursor: pointer;
   font-size: 16px;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -57,24 +57,7 @@ a:hover{
 /*推荐文章*/
 .rightBox .recommendBox{
   width: 100%;
-  height:440px;
-  background-color: white;
-  border-radius: 6px;
-  margin-top: 20px;
-  overflow: hidden;
-}
-/*网站标签*/
-.rightBox .tagBox{
-  width: 100%;
   height:400px;
-  background-color: white;
-  border-radius: 6px;
-  margin-top: 20px;
-  overflow: hidden;
-}
-/*友情链接*/
-.rightBox .friendHrefBox{
-  width: 100%;
   background-color: white;
   border-radius: 6px;
   margin-top: 20px;
