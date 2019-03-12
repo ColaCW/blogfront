@@ -9,7 +9,7 @@
       </div>
       <div class="leftBox layui-col-xs12 layui-col-md9" style="margin-bottom:20px;">
         <template v-for="(blog,index) in blogs">
-          <div data-scroll-reveal="enter top  over 0.3s" class="blogBox layui-col-xs12" @click="goDetail(blog.id)">
+          <div class="blogBox layui-col-xs12" @click="goDetail(blog.id)">
             <div class="blog-name">{{blog.name}}</div>
             <div class="blog-body">
               <div class="blog-img layui-col-xs4 layui-col-md2">

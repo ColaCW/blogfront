@@ -26,8 +26,8 @@
           </div>
           <div style="clear: both;"></div>
         </div>
-        <template v-for="(blog,index) in blogs">
-          <div data-scroll-reveal="enter top  over 0.3s" class="blogBox layui-col-xs12" @click="goDetail(blog.id)">
+        <template v-for="blog in blogs">
+          <div class="blogBox layui-col-xs12" @click="goDetail(blog.id)">
             <div class="blog-name">{{blog.name}}</div>
             <div class="blog-body">
               <div class="blog-img layui-col-xs4 layui-col-md2">
@@ -176,7 +176,6 @@
           if(res.status){
             that.page = res.data.pageable.pageNumber+1;
             that.blogs = res.data.content;
-            console.log(that.blogs);
             that.$nextTick(function () {
               //加载文章滚动条动画
               that.scrollReveal.reveal('.blogBox', {

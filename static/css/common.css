@@ -127,6 +127,12 @@ img {
   height: auto;
   margin: auto;
 }
+a{
+  color: blue;
+}
+a:hover{
+  color:red;
+}
 
 .Wrapper {
   min-height: 100%;
@@ -594,9 +600,9 @@ img {
 /*加载中*/
 
 /*禁止复制*/
-*{
-  user-select: none;
-}
+/**{*/
+  /*user-select: none;*/
+/*}*/
 
 @media screen and (max-width:750px) {
   .header{
