@@ -25,6 +25,9 @@ var Web = {
       type: 'GET',
       contentType: "application/json; charset=utf-8",
       url: url,
+      xhrFields: {
+        withCredentials: true
+      },
       data: data2,
       dataType: "json",
       success: success
@@ -36,6 +39,9 @@ var Web = {
       type: 'POST',
       contentType: "application/json; charset=utf-8",
       url: url,
+      xhrFields: {
+        withCredentials: true
+      },
       data: JSON.stringify(data),
       dataType: "json",
       success: success
