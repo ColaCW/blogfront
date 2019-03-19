@@ -25,6 +25,7 @@
   padding: 0px 20px 20px 20px;
 }
 .blogBox .blog-body .blog-img{
+  overflow: hidden;
   height:100%;
   display: -webkit-flex;
   display: flex;

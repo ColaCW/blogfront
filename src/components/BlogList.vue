@@ -148,10 +148,10 @@
             that.currentPage = res.data.pageable.pageNumber+1;
             that.totalPage = res.data.totalPages;
             that.blogs = res.data.content;
-            $("body,html").animate({
-              scrollTop: 0
-            });
             that.$nextTick(function () {
+              $("body,html").animate({
+                scrollTop: 0
+              });
               //加载文章滚动条动画
               that.scrollReveal.reveal('.blogBox', {
                 duration: 2000,//动画的时长
