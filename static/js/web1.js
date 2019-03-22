@@ -10,7 +10,7 @@ function getHost() {
 var Web = {
 
   // host: getHost(),
-  // host: "http://127.0.0.1:80",
+  // host: "http://127.0.0.1:8088",
   host: "http://www.lgqoxb.top:8088",
   img_host:"http://lgqoxb.top",
 

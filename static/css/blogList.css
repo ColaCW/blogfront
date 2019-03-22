@@ -115,7 +115,7 @@
 /*点击排行*/
 .rightBox .clickRankBox{
   width: 100%;
-  height:400px;
+  height:370px;
   background-color: white;
   border-radius: 6px;
   margin-top: 20px;
@@ -139,7 +139,7 @@
 /*推荐文章*/
 .rightBox .recommendBox{
   width: 100%;
-  height:400px;
+  height:370px;
   background-color: white;
   border-radius: 6px;
   margin-top: 20px;
