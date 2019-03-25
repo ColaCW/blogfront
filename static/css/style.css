@@ -233,7 +233,7 @@ blockquote{
   border-left: 1px solid #ddd;
 }
 
-p{
+.blogDetailBox p{
   font-family: inherit;
   font-size: 1rem;
   font-weight: normal;
