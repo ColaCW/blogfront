@@ -47,7 +47,6 @@ a:hover{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  padding: 3px 3px;
 
 }
 .clickRankBox li:hover,.recommendBox li:hover,.friendHrefBox li:hover{

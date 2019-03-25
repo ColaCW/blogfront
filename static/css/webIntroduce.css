@@ -1,0 +1,99 @@
+.main {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+a{
+  color: red;
+}
+a:hover{
+  color: skyblue;
+}
+.blogDetailBox{
+  min-height:800px;
+  background-color: white;
+  overflow: hidden;
+  padding: 20px;
+}
+.blogDetailBox .blog-name{
+  font-size: 20px;
+  margin: 20px 0 40px 0px;
+  text-align: center;
+}
+.blogDetailBox .blog-content{
+  text-align: left;
+  /*text-indent:45px;!*首行缩进*!*/
+  margin-top: 20px;
+  margin-bottom: 10px;
+  min-height: 550px;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+/*点击排行*/
+.rightBox .clickRankBox{
+  width: 100%;
+  height:370px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top:0px;
+  overflow: hidden;
+}
+.clickRankBox li,.recommendBox li,.friendHrefBox li{
+  text-align: left;
+  width: 90%;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+.clickRankBox li:hover,.recommendBox li:hover,.friendHrefBox li:hover{
+  transform: scale(1.1);
+  background: #f6f6f6;
+}
+/*推荐文章*/
+.rightBox .recommendBox{
+  width: 100%;
+  height:370px;
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.htitle{
+  text-align: left;
+  font-size: 16px;
+  line-height: 40px;
+  border-bottom: 1px solid #eee;
+  color: #484848;
+  font-weight: normal;
+  position: relative;
+  margin: 10px 20px 10px 20px;
+}
+.htitle::after{
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 2px;
+  background: #000;
+  left: 0;
+  bottom: 0;
+  -moz-transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.tagBox li{
+  float: left;
+  background-color: skyblue;
+  min-width: 40px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 7px;
+  cursor: pointer;
+  padding: 5px;
+}
