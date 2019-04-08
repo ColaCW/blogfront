@@ -73,6 +73,7 @@
 </template>
 <style scoped>
   @import '../../static/css/blogDetail.css';
+  @import '../../static/css/foundation.min.css';
 </style>
 <style>
   @import '../../static/css/style.css';
