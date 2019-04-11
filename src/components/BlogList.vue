@@ -196,10 +196,15 @@
       },
       goPage:function(page){
         var that = this;
+        if(page < 1){
+          Web.showToast("最小第一页",2000);
+          return
+        }
         if(page > that.totalPage){
           Web.showToast("最大页数"+that.totalPage+"页");
           return
         }
+        that.pageIndex = Math.ceil(page/5);
         that.getBlogs(page);
       },
       goLastPage:function (page) {
