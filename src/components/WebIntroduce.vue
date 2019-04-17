@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="rightBox layui-col-xs12 layui-col-md3" style="padding-left: 35px;margin-bottom:20px;">
-        <div class="clickRankBox">
+        <div class="clickRankBox" v-if="viewBlogs && viewBlogs.length > 0">
           <h2 class="htitle">
             热门点击
           </h2>
@@ -52,7 +52,7 @@
             </template>
           </ul>
         </div>
-        <div class="recommendBox">
+        <div class="recommendBox" v-if="goodBlogs && goodBlogs.length > 0">
           <h2 class="htitle">
             推荐博文
           </h2>
@@ -115,7 +115,6 @@
         that.getBlog();
         that.getViewBlogs();
         that.getGoodBlogs();
-        that.getBlogTags();
       },
       getBlog:function () {
         var that = this;
@@ -162,16 +161,6 @@
         Web.post(Web.host + "/api/blog/getViewBlogs.do",null,function (res) {
           if(res.status){
             that.viewBlogs = res.data;
-          }
-        })
-      },
-      //获取文章标签
-      getBlogTags:function () {
-        var that = this;
-        Web.post(Web.host + "/api/blog/getBlogTags.do",null,function (res) {
-          if(res.status){
-            that.blogTags = res.data;
-            console.log(that.blogTags)
           }
         })
       },

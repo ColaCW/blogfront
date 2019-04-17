@@ -74,7 +74,7 @@
   background: url(../../static/img/quote-bg.png) no-repeat top right rgba(42,42,42,1);
   border-radius: 6px;
   color:white;
-  animation: myrotate 1.3s linear;
+  /*animation: myrotate 1.3s linear;*/
 }
 @keyframes myrotate {
   0% {
@@ -193,5 +193,15 @@
   .blogBox .blog-body .blog-content .blog-articel{
     height: 70%;
     max-height: 70% !important;
+  }
+  .page{
+    margin-bottom: 10px !important;
+  }
+  .page .page_num{
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  .page p{
+    margin-left: 15% !important;
   }
 }

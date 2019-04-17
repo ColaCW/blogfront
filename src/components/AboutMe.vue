@@ -11,7 +11,7 @@
           <div style="text-align: left;margin-top: 20px;">
             <p><b style="font-size: 17px;">关于站长：</b></p>
             <p style="margin-top: 20px;">&nbsp;&nbsp;刘国强，男，一个97年的站长，吉林人。</p>
-            <p style="margin-top: 10px;">&nbsp;&nbsp;建站时间：2019.01-2019.03，在工作之外利用休息时间搭建了这个网站。</p>
+            <p style="margin-top: 10px;">&nbsp;&nbsp;建站时间：2019.01-2019.03，利用业余休息时间搭建了这个网站。</p>
             <p style="margin-top: 20px;"><b style="font-size: 17px;">为什么要搭建博客网站：</b></p>
             <p style="margin-top: 20px;">（1）碰到过的某个问题，记录下来，再次碰见之后可以很快速的解决，平时也可以看看自己遇到过的一些问题。</p>
             <p style="margin-top: 10px;">（2）写博客可以加深自己的理解，当把问题整理后用自己的话描述出来时，才算是真正的了解，会更加深自己的印象。</p>

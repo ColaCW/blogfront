@@ -23,7 +23,9 @@
   export default {
     data () {
       return {
-        shareList:[{name:"死神",href:"https://pan.baidu.com/s/1mVf_xqIsN5LUdBBdk4_Qow",MA:"2bq5"},{name:"死神",href:"https://pan.baidu.com/s/1Y6SdBKkFzPbbU_60221UnQ",MA:"398Q"},{name:"死神",href:"https://pan.baidu.com/s/1Y6SdBKkFzPbbU_60221UnQ",MA:"398Q"}]
+        shareList:[
+          {name:"死神",href:"https://pan.baidu.com/s/1mVf_xqIsN5LUdBBdk4_Qow",MA:"2bq5"},
+          ]
       }
     },
     mounted:function(){

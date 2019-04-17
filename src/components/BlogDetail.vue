@@ -10,23 +10,24 @@
             </div>
             <div class="blog-name">{{previewBlog.name}}</div>
             <ul style="text-align: left;">
-              <li style="display: inline-block;margin-left: 15px;">
+              <li style="float: left;margin-left: 15px;height: 30px;">
                 <img src="../../static/img/分类.png" style="width: 18px;float: left;"/>
                 <span style="margin-left:5px;cursor: pointer;">{{previewBlog.blogCategoryObj.name}}</span>
               </li>
-              <li style="display: inline-block;margin-left: 15px;">
+              <li style="float: left;margin-left: 15px;height: 30px;">
                 <img src="../../static/img/浏览.png" style="width: 19px;float: left;"/>
                 <span style="margin-left:5px;">{{previewBlog.viewNum}}</span>
               </li>
-              <li style="display: inline-block;margin-left: 15px;">
+              <li style="float: left;margin-left: 15px;height: 30px;">
                 <img src="../../static/img/日期.png" style="width: 18px;float: left;"/>
                 <span style="margin-left:5px;">{{previewBlog.createAt.substring(0,10)}}</span>
               </li>
-              <li style="display: inline-block;margin-left: 15px;">
+              <li style="float: left;margin-left: 15px;height: 30px;">
                 <template v-if="previewBlog.tags" v-for="tag in previewBlog.tags.split(',')">
                   <span style="background-color: #e6e6e6;border-radius: 6px;padding: 5px 12px;margin-left: 5px">{{tag}}</span>
                 </template>
               </li>
+              <div style="clear: both"></div>
             </ul>
 
             <div class="blog-content" id="blog-content" v-html="previewBlog.content"></div>
@@ -39,7 +40,7 @@
         </div>
       </div>
       <div class="rightBox layui-col-xs12 layui-col-md3" style="padding-left: 35px;margin-bottom:20px;">
-        <div class="clickRankBox">
+        <div class="clickRankBox" v-if="viewBlogs && viewBlogs.length>0">
           <h2 class="htitle">
             热门点击
           </h2>
@@ -52,7 +53,7 @@
             </template>
           </ul>
         </div>
-        <div class="recommendBox">
+        <div class="recommendBox" v-if="goodBlogs && goodBlogs.length > 0">
           <h2 class="htitle">
             推荐博文
           </h2>
@@ -115,7 +116,6 @@
         that.getBlog();
         that.getViewBlogs();
         that.getGoodBlogs();
-        that.getBlogTags();
       },
       getBlog:function () {
         var that = this;
@@ -162,16 +162,6 @@
         Web.post(Web.host + "/api/blog/getViewBlogs.do",null,function (res) {
           if(res.status){
             that.viewBlogs = res.data;
-          }
-        })
-      },
-      //获取文章标签
-      getBlogTags:function () {
-        var that = this;
-        Web.post(Web.host + "/api/blog/getBlogTags.do",null,function (res) {
-          if(res.status){
-            that.blogTags = res.data;
-            console.log(that.blogTags)
           }
         })
       },

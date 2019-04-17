@@ -8,3 +8,9 @@
 .qrcode{
   margin-top: 20px;
 }
+
+@media screen and (max-width:750px) {
+  .rightBox{
+    padding-left:0 !important;
+  }
+}

@@ -42,16 +42,27 @@
               </div>
               <div class="blog-content layui-col-xs8 layui-col-md10">
                 <div class="blog-articel" v-html="blog.brief"></div>
-                <div class="blog-other">
-                  <img src="../../static/img/分类.png" style="float: left;margin-left: 15px;"/>
-                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;" @click="">【{{blog.blogCategoryObj.name}}】</div>
-                  <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
-                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">{{blog.viewNum}}</div>
-                  <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
-                  <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;">{{blog.createAt.substring(0,10)}}</div>
-                  <div class="read-article" style="float: right;margin-right: 10px" @click.stop="goDetail(blog.id)">阅读原文</div>
+                <ul class="blog-other">
+                  <li style="float: left;">
+                    <img src="../../static/img/分类.png" style="float: left;margin-left: 15px;"/>
+                    <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:green;" @click="">【{{blog.blogCategoryObj.name}}】</div>
+                    <div style="clear: both"></div>
+                  </li>
+                  <li style="float: left;">
+                    <img src="../../static/img/浏览.png" style="float: left;margin-left: 15px;"/>
+                    <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;color:red;">{{blog.viewNum}}</div>
+                    <div style="clear: both"></div>
+                  </li>
+                  <li style="float: left;">
+                    <img src="../../static/img/日期.png" style="float: left;margin-left: 15px;"/>
+                    <div style="height: 20px;line-height: 20px;float: left;margin-left: 5px;">{{blog.createAt.substring(0,10)}}</div>
+                    <div style="clear: both"></div>
+                  </li>
+                  <li style="float: right;">
+                    <div class="read-article" style="margin-right: 10px" @click.stop="goDetail(blog.id)">阅读原文</div>
+                  </li>
                   <div style="clear: both"></div>
-                </div>
+                </ul>
               </div>
               <div style="clear: both"></div>
             </div>
@@ -59,7 +70,7 @@
         </template>
         <!--分页-->
         <div class="page" v-if="blogs && blogs.length > 0">
-          <div>
+          <div class="page_num">
             <button class="" @click="goLastPage(currentPage-1)"  :style="(currentPage-1)<1 ? 'cursor: not-allowed;' : ''">上一页</button>
             <ul>
               <template v-for="pageNum in 5" v-if="(5*(pageIndex-1)+pageNum) <= totalPage">
@@ -89,7 +100,7 @@
           </div>
           <div style="clear: both"></div>
         </div>
-        <div class="clickRankBox">
+        <div class="clickRankBox" v-if="viewBlogs && viewBlogs.length>0">
           <h2 class="htitle">
             热门点击
           </h2>
@@ -102,7 +113,7 @@
             </template>
           </ul>
         </div>
-        <div class="recommendBox">
+        <div class="recommendBox" v-if="goodBlogs && goodBlogs.length>0">
           <h2 class="htitle">
             推荐博文
           </h2>
@@ -115,7 +126,7 @@
             </template>
           </ul>
         </div>
-        <div class="friendHrefBox">
+        <div class="friendHrefBox" v-if="friendHref && friendHref.length>0">
           <h2 class="htitle">
             友情链接
           </h2>
@@ -202,8 +213,8 @@
               });
               //加载文章滚动条动画
               that.scrollReveal.reveal('.blogBox', {
-                duration: 2000,//动画的时长
-                delay: 300,//延迟时间
+                duration: 1000,//动画的时长
+                delay: 100,//延迟时间
                 origin: 'top',//动画开始的位置，'bottom', 'left', 'top', 'right'
                 reset: true,//回滚的时候是否再次触发动画
                 mobile: true,//在移动端是否使用动画
