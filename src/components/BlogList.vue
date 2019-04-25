@@ -129,8 +129,10 @@
     mounted: function () {
       var that = this;
       $(".blog-type").addClass("active");
-      window.vue = this;
       that.init();
+    },
+    beforeDestroy:function(){
+      window.vue = this;
     },
     methods: {
       checkRouter(newVal, oldVa) {

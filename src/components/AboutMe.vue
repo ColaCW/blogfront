@@ -47,9 +47,11 @@
     },
     mounted:function(){
       var that = this;
-      window.vue = this;
       $(".about-me").addClass("active");
       that.init();
+    },
+    beforeDestroy:function(){
+      window.vue = this;
     },
     methods: {
       init:function () {
