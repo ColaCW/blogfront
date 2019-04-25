@@ -32,8 +32,6 @@
       var that = this;
       $(".resource-share").addClass("active");
       that.init();
-    },
-    beforeDestroy:function(){
       window.vue = this;
     },
     methods: {

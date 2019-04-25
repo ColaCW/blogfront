@@ -172,8 +172,6 @@
       var that = this;
       $(".index").addClass("active");
       that.init();
-    },
-    beforeDestroy:function(){
       window.vue = this;
     },
     methods: {

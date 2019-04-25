@@ -130,8 +130,6 @@
       var that = this;
       $(".blog-type").addClass("active");
       that.init();
-    },
-    beforeDestroy:function(){
       window.vue = this;
     },
     methods: {

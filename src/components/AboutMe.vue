@@ -49,8 +49,6 @@
       var that = this;
       $(".about-me").addClass("active");
       that.init();
-    },
-    beforeDestroy:function(){
       window.vue = this;
     },
     methods: {

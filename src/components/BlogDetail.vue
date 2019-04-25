@@ -86,7 +86,6 @@
         id:"",
         isGood:false,
         previewBlog:null,
-        blogs:[],
         goodBlogs:[],
         viewBlogs:[],
         blogTags:[]
@@ -99,8 +98,6 @@
       var that = this;
       $(".header .active").removeClass("active");
       that.init();
-    },
-    beforeDestroy:function(){
       window.vue = this;
     },
     methods: {
