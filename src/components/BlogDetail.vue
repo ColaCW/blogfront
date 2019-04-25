@@ -97,6 +97,7 @@
     },
     mounted:function(){
       var that = this;
+      window.vue = this;
       $(".header .active").removeClass("active");
       that.init();
     },

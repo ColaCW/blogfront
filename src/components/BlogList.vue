@@ -129,6 +129,7 @@
     mounted: function () {
       var that = this;
       $(".blog-type").addClass("active");
+      window.vue = this;
       that.init();
     },
     methods: {

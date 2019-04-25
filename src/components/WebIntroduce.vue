@@ -97,6 +97,7 @@
     mounted:function(){
       var that = this;
       $(".header .active").removeClass("active");
+      window.vue = this;
       that.init();
     },
     methods: {

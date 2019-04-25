@@ -31,6 +31,7 @@
     mounted:function(){
       var that = this;
       $(".resource-share").addClass("active");
+      window.vue = this;
       that.init();
     },
     methods: {

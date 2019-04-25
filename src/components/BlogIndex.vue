@@ -171,6 +171,7 @@
     mounted: function () {
       var that = this;
       $(".index").addClass("active");
+      window.vue = this;
       that.init();
     },
     methods: {
