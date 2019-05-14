@@ -205,9 +205,9 @@ a:hover{
 .typeSelect li.active{
   background-color:  #ffc97a;
 }
-.blog-type:hover .typeSelect{
-  display: block !important;
-}
+/*.blog-type:hover .typeSelect{*/
+  /*display: block !important;*/
+/*}*/
 .footer {
   clear: both;
   position: relative;

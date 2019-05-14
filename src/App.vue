@@ -2,10 +2,10 @@
   <div id="app" v-cloak>
     <ul class="header">
       <li class="top-menu index" @click="goA(1)" @mouseover="show('none')">网站首页</li>
-      <li class="top-menu blog-type" style="position: relative">博客分类
+      <li class="top-menu blog-type" style="position: relative" @click="show()">博客分类
         <ul class="typeSelect" ref="typeSelect" @mouseleave="show('none')" @mouseover="show('block')">
           <template v-for="categary in categarys">
-            <li @click="goA(2,categary.name)" :class="categary.name">{{categary.name}}</li>
+            <li @click.stop="goA(2,categary.name)" :class="categary.name">{{categary.name}}</li>
           </template>
         </ul>
       </li>
@@ -64,9 +64,16 @@
       show: function (type) {
         var that = this;
         if(type == 'none'){
-          that.$refs.typeSelect.style.display = "none"
+          that.$refs.typeSelect.style.display = "none";
         }else if(type == 'block'){
-          that.$refs.typeSelect.style.display = "block"
+          that.$refs.typeSelect.style.display = "block";
+        }else{
+          if(that.$refs.typeSelect.style.display == 'block'){
+            that.$refs.typeSelect.style.display = 'none';
+          }else{
+            that.$refs.typeSelect.style.display = 'block';
+          }
+
         }
       }
     }
