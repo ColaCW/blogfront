@@ -30,7 +30,7 @@
               <div style="clear: both"></div>
             </ul>
 
-            <div class="blog-content" id="blog-content" v-html="previewBlog.content"></div>
+            <div class="blog-content" id="blog-content" v-html="previewBlog.blogDetailObj.content"></div>
             <div>
               <img src="../../static/img/点赞.png" @click="good()" v-show="!isGood" style="cursor: pointer;"/>
               <img src="../../static/img/点赞1.png" v-show="isGood"/>
@@ -97,8 +97,8 @@
     mounted:function(){
       var that = this;
       $(".header .active").removeClass("active");
-      that.init();
       window.vue = this;
+      that.init();
     },
     methods: {
       checkRouter(newVal, oldVa) {
